@@ -5,7 +5,12 @@ from fuzzywuzzy import fuzz
 import pickle
 import numpy as np
 
-cv = pickle.load(open('cv.pkl','rb'))
+import urllib.request
+
+
+CV_URL = "https://huggingface.co/pranjalvoid/Quoraduplicatepairs/resolve/main/cv.pkl"
+cv = pickle.load(urllib.request.urlopen(CV_URL))
+
 
 
 def test_common_words(q1,q2):
@@ -310,5 +315,6 @@ def query_point_creator(q1, q2):
 
     # bow feature for q2
     q2_bow = cv.transform([q2]).toarray()
+
 
     return np.hstack((np.array(input_query).reshape(1, 22), q1_bow, q2_bow))
