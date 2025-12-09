@@ -5,7 +5,7 @@ Built using NLP techniques, handcrafted similarity features, Bag-of-Words encodi
 ---
 
 ## 🚀 Live Demo  
-🔗 **Try the App:** _Add your Streamlit URL here after deployment_
+🔗 **Try the App:** https://quora-question-pairs-dtupranjal.streamlit.app/
 
 ---
 
