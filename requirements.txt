@@ -5,3 +5,4 @@ fuzzywuzzy
 python-Levenshtein
 distance
 beautifulsoup4
+nltk
