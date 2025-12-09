@@ -8,7 +8,7 @@ import numpy as np
 import urllib.request
 
 import nltk
-nltk.download('stopwords')
+nltk.download('stopwords',quiet=True)
 from nltk.corpus import stopwords
 STOP_WORDS = set(stopwords.words('english'))
 
@@ -326,4 +326,5 @@ def query_point_creator(q1, q2):
 
 
     return np.hstack((np.array(input_query).reshape(1, 22), q1_bow, q2_bow))
+
 
