@@ -6,7 +6,7 @@ import urllib.request
 st.header('Duplicate Question Pairs')
 
 # ---------- Load Model from HuggingFace ----------
-MODEL_URL = "https://huggingface.co/pranjalvoid/duplicate-question-detector-model/resolve/main/model.pkl"
+MODEL_URL = "https://huggingface.co/pranjalvoid/Quoraduplicatepairs/resolve/main/model.pkl"
 model = pickle.load(urllib.request.urlopen(MODEL_URL))
 # -------------------------------------------------
 
@@ -21,3 +21,4 @@ if st.button('Find'):
         st.header('Duplicate')
     else:
         st.header('Not Duplicate')
+
