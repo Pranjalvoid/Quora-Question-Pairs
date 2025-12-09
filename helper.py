@@ -7,6 +7,12 @@ import numpy as np
 
 import urllib.request
 
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+STOP_WORDS = set(stopwords.words('english'))
+
+
 
 CV_URL = "https://huggingface.co/pranjalvoid/Quoraduplicatepairs/resolve/main/cv.pkl"
 cv = pickle.load(urllib.request.urlopen(CV_URL))
@@ -27,7 +33,8 @@ def test_total_words(q1,q2):
 def test_fetch_token_features(q1, q2):
     SAFE_DIV = 0.0001
 
-    STOP_WORDS = pickle.load(open('stopwords.pkl','rb'))
+   
+
 
     token_features = [0.0] * 8
 
@@ -270,7 +277,8 @@ def preprocess(q):
     q = q.replace("'ll", " will")
 
     # Removing HTML tags
-    q = BeautifulSoup(q)
+    q = BeautifulSoup(q, "html.parser")
+
     q = q.get_text()
 
     # Remove punctuations
@@ -318,3 +326,4 @@ def query_point_creator(q1, q2):
 
 
     return np.hstack((np.array(input_query).reshape(1, 22), q1_bow, q2_bow))
+
